@@ -1,10 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import NavLink from "./NavLink";
-import { Email, EmailOutlined, PhoneInTalk, PhoneInTalkOutlined } from "@mui/icons-material";
+import { EmailOutlined, PhoneInTalkOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { green, lightGreen } from "@mui/material/colors";
+import { useState } from "react";
 
 function Header() {
+  const [value, setValue] = useState(0);
   return (
     <Box
       display={"flex"}
@@ -12,7 +13,7 @@ function Header() {
       alignItems={"center"}
       padding={'10px'}
     >
-      <Box display={'flex'} flexDirection={'row'} className="logo" flexGrow={0}>
+      <Box display={'flex'} flexDirection={'row'} flexGrow={0}>
         <img
           sizes="323px"
           id="img_Clprt0-lmx"
@@ -24,19 +25,19 @@ function Header() {
         />
       </Box>
       <Box display={'flex'} flexDirection={'row'} width={'100%'} flexGrow={1}>
-        <NavLink />
+        <NavLink value={value} setValue={setValue}/>
       </Box>
       <Box display={'flex'} flexDirection={'column'} flexGrow={1}>
         <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
-          <EmailOutlined />
-          <Typography variant="caption" style={{ marginLeft: '5px' }}>Email: </Typography>
+          <EmailOutlined fontSize="small" />
+          <Typography variant="caption" style={{ marginLeft: '5px' }}>Email:</Typography>
           <Link style={{ color: '#247d7c' }} to="mailto:info@vonhomecare.com.au" children={
             <Typography variant="caption" sx={{ marginLeft: '5px', color: '#247d7c' }}>info@vonhomecare.com.au</Typography>
           } />
         </Box>
         <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
-          <PhoneInTalkOutlined />
-          <Typography variant="caption" style={{ marginLeft: '5px' }}>Hotline: </Typography>
+          <PhoneInTalkOutlined fontSize="small" />
+          <Typography variant="caption" style={{ marginLeft: '5px' }}>Hotline:</Typography>
           <Typography variant="caption" sx={{ marginLeft: '5px', color: '#247d7c' }}>0416 532 821</Typography>
         </Box>
       </Box>
